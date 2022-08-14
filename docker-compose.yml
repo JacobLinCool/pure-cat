@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  pure:
+    build:
+      context: .
+      target: pure-cat
+    image: jacoblincool/pure-cat
+    env_file:
+      - .env
+    environment:
+      - STORAGE=/storage
+    volumes:
+      - log-storage:/storage
+
+volumes:
+  log-storage: {}
