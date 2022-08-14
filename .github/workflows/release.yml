@@ -33,7 +33,7 @@ jobs:
           run_install: false
 
       - name: Build & Test
-        run: pnpm i && pnpm build && pnpm test
+        run: pnpm i && pnpm build
 
       - name: Publish
         run: |
@@ -41,6 +41,7 @@ jobs:
           pnpm publish --verbose --no-git-checks
 
   release-image:
+    name: Release Docker Image (${{ github.ref }})
     runs-on: ubuntu-latest
 
     steps:
@@ -71,6 +72,7 @@ jobs:
 
       - name: Build & Push
         run: |
+          touch .env
           docker buildx bake --push --set "*.platform=linux/arm64,linux/amd64"
           regctl -v info image copy jacoblincool/pure-cat:latest ghcr.io/jacoblincool/pure-cat:latest
 
