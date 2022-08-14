@@ -1,7 +1,7 @@
 {
     "name": "pure-cat",
     "version": "0.1.0",
-    "description": "",
+    "description": "A Modular Discord Bot (Framework).",
     "main": "dist/core/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
