@@ -50,15 +50,15 @@ export class LoggerControl extends Module {
             return;
         }
 
-        if (bot.logger.dumpable(guild) === true) {
-            await interaction.reply({
-                ephemeral: true,
-                content: `Channel "pure-logger" already exists on this server.`,
-            });
-            return;
-        }
-
         if (interaction.customId === "create-pure-logger") {
+            if (bot.logger.dumpable(guild) === true) {
+                await interaction.reply({
+                    ephemeral: true,
+                    content: `Channel "pure-logger" already exists on this server.`,
+                });
+                return;
+            }
+
             await interaction.reply(`Creating channel "pure-logger" ...`);
             try {
                 await guild.channels.create({ name: "pure-logger" });

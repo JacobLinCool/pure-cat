@@ -11,20 +11,22 @@ export class Bot<T = unknown> {
             GatewayIntentBits.Guilds,
             GatewayIntentBits.GuildMembers,
             GatewayIntentBits.GuildMessages,
+            GatewayIntentBits.GuildMessageReactions,
             GatewayIntentBits.GuildIntegrations,
             GatewayIntentBits.GuildPresences,
             GatewayIntentBits.GuildVoiceStates,
             GatewayIntentBits.MessageContent,
             GatewayIntentBits.DirectMessages,
+            GatewayIntentBits.DirectMessageReactions,
         ],
     });
     public modules: Module[] = [];
-    public data: Collection<T>;
+    public store: Collection<T>;
 
     constructor(bot_id: string, storage: string, base_data?: T) {
         this.id = bot_id;
         this.logger = new Logger(storage);
-        this.data = new Collection(storage, base_data);
+        this.store = new Collection(storage, base_data);
 
         this.client.once("ready", async () => {
             for (const module of this.modules) {
@@ -105,9 +107,21 @@ export class Bot<T = unknown> {
                 }
             }
         });
+
+        this.client.on("guildMemberAdd", async (member) => {
+            for (const module of this.modules) {
+                try {
+                    await module.guildMemberAdd?.(this, member);
+                } catch (error) {
+                    this.logger.log(member.guild, {
+                        message: `Error handling memberAdd. (${module.constructor.name}) ${error}`,
+                    });
+                }
+            }
+        });
     }
 
-    public use(module: Module): this {
+    public use(module: Module<any>): this {
         module.init?.(this);
         this.modules.push(module);
         return this;

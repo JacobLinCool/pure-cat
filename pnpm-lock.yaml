@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 importers:
+
   .:
     specifiers:
       '@discordjs/rest': ^1.0.1
@@ -13,7 +14,7 @@ importers:
       dotenv: ^16.0.1
       eslint: ^8.22.0
       eslint-config-prettier: ^8.5.0
-      file-mapping: ^0.2.0
+      file-mapping: ^0.2.1
       jest: ^28.1.3
       node-fetch: ^2.6.7
       prettier: ^2.7.1
@@ -26,7 +27,7 @@ importers:
       '@discordjs/rest': 1.0.1
       discord.js: 14.2.0
       dotenv: 16.0.1
-      file-mapping: 0.2.0
+      file-mapping: 0.2.1
       node-fetch: 2.6.7
       pure-cat: 'link:'
     devDependencies:
@@ -45,6 +46,7 @@ importers:
       typescript: 4.7.4
 
 packages:
+
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
     engines: {node: '>=6.0.0'}
@@ -1899,8 +1901,8 @@ packages:
       flat-cache: 3.0.4
     dev: true
 
-  /file-mapping/0.2.0:
-    resolution: {integrity: sha512-WPjg/0LqCEXEtJunQsaWNLZZO4YX4q4h9XLkoMIdIE48xnZiNG7aKbXE3jt2sxAw6rVrM4rhYV6AMtKmKeZc9A==}
+  /file-mapping/0.2.1:
+    resolution: {integrity: sha512-2MHW2xxGCVMZkHXZbKdMf35U00GqgjtUk91tvDLoFOVIzi01gEBjIp+5VBMbupjQ8M5om71XWZm0KwmedWRhaw==}
     dev: false
 
   /file-type/17.1.6:

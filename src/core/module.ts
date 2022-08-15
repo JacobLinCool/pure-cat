@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { Message, Interaction, Guild } from "discord.js";
+import type { Message, Interaction, Guild, GuildMember } from "discord.js";
 import type { Command } from "./command";
 import type { Bot } from "./bot";
 
 export class Module<T = unknown> {
     public bot?: Bot<T>;
-    public commands?: Command[];
+    public commands?: Command<T>[];
 
     constructor(bot?: Bot<T>) {
         this.bot = bot;
@@ -28,6 +28,10 @@ export class Module<T = unknown> {
     }
 
     async interactionCreate(bot: Bot<T>, interaction: Interaction): Promise<void> {
+        return;
+    }
+
+    async guildMemberAdd(bot: Bot<T>, member: GuildMember): Promise<void> {
         return;
     }
 }
