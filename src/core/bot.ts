@@ -1,8 +1,9 @@
 import { Client, GatewayIntentBits, REST, Routes } from "discord.js";
+import { Collection } from "file-mapping";
 import { Logger } from "./logger";
-import { Module } from "./types";
+import { Module } from "./module";
 
-export class Bot {
+export class Bot<T = unknown> {
     public id: string;
     public logger: Logger;
     public client = new Client({
@@ -18,15 +19,17 @@ export class Bot {
         ],
     });
     public modules: Module[] = [];
+    public data: Collection<T>;
 
-    constructor(bot_id: string, storage: string) {
+    constructor(bot_id: string, storage: string, base_data?: T) {
         this.id = bot_id;
         this.logger = new Logger(storage);
+        this.data = new Collection(storage, base_data);
 
         this.client.once("ready", async () => {
             for (const module of this.modules) {
                 try {
-                    await module.ready?.(this.client, this.logger);
+                    await module.ready?.(this);
                 } catch (error) {
                     this.logger.sys({
                         message: `Error handling ready. (${module.constructor.name}) ${error}`,
@@ -38,7 +41,7 @@ export class Bot {
         this.client.on("guildCreate", async (guild) => {
             for (const module of this.modules) {
                 try {
-                    await module.guildCreate?.(this.client, this.logger, guild);
+                    await module.guildCreate?.(this, guild);
                 } catch (error) {
                     this.logger.log(guild, {
                         message: `Error handling guildCreate. (${module.constructor.name}) ${error}`,
@@ -59,7 +62,7 @@ export class Bot {
 
             for (const module of this.modules) {
                 try {
-                    await module.messageCreate?.(this.client, this.logger, message);
+                    await module.messageCreate?.(this, message);
                 } catch (error) {
                     this.logger.log(guild, {
                         message: `Error handling message. (${module.constructor.name}) ${error}`,
@@ -74,23 +77,13 @@ export class Bot {
                 return;
             }
 
-            for (const module of this.modules) {
-                try {
-                    await module.interactionCreate?.(this.client, this.logger, interaction);
-                } catch (error) {
-                    this.logger.log(guild, {
-                        message: `Error handling interaction. (${module.constructor.name}) ${error}`,
-                    });
-                }
-            }
-
             if (interaction.isChatInputCommand()) {
                 for (const module of this.modules) {
                     if (module.commands?.length) {
                         try {
                             for (const command of module.commands) {
                                 if (command.match(interaction)) {
-                                    await command.handler(interaction, this.logger);
+                                    await command.handler(interaction, this);
                                 }
                             }
                         } catch (error) {
@@ -101,11 +94,21 @@ export class Bot {
                     }
                 }
             }
+
+            for (const module of this.modules) {
+                try {
+                    await module.interactionCreate?.(this, interaction);
+                } catch (error) {
+                    this.logger.log(guild, {
+                        message: `Error handling interaction. (${module.constructor.name}) ${error}`,
+                    });
+                }
+            }
         });
     }
 
     public use(module: Module): this {
-        module.init?.(this.client, this.logger);
+        module.init?.(this);
         this.modules.push(module);
         return this;
     }

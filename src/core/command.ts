@@ -1,10 +1,13 @@
 import { SlashCommandBuilder, CommandInteraction } from "discord.js";
-import { Logger } from "./logger";
+import type { Bot } from "./bot";
 
-export type Handler = (interaction: CommandInteraction, logger: Logger) => Promise<void> | void;
+export type Handler<T = unknown> = (
+    interaction: CommandInteraction,
+    bot: Bot<T>,
+) => Promise<void> | void;
 
-export class Command extends SlashCommandBuilder {
-    public handler: Handler = () => undefined;
+export class Command<T = unknown> extends SlashCommandBuilder {
+    public handler: Handler<T> = () => undefined;
 
     constructor(name: string, description: string) {
         super();
@@ -12,7 +15,7 @@ export class Command extends SlashCommandBuilder {
         this.setDescription(description);
     }
 
-    public handle(handler: Handler): this {
+    public handle(handler: Handler<T>): this {
         this.handler = handler;
         return this;
     }

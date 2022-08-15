@@ -12,7 +12,7 @@ export class Logger {
     private cache = new Map<string, Log[]>();
 
     constructor(storage: string, { capacity = 1000, console = true } = {}) {
-        this.storage = path.resolve(storage);
+        this.storage = path.resolve(storage, "logs");
         this.capacity = capacity;
         this.console = console;
 
