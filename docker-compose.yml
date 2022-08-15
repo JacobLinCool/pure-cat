@@ -12,6 +12,7 @@ services:
       - STORAGE=/storage
     volumes:
       - log-storage:/storage
+    restart: unless-stopped
 
 volumes:
   log-storage: {}
