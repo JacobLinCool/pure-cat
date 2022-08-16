@@ -20,6 +20,7 @@
         "pure-cat-module-click": "workspace:*",
         "pure-cat-module-dns": "workspace:*",
         "pure-cat-module-event-log": "workspace:*",
+        "pure-cat-module-leetcode": "workspace:*",
         "pure-cat-module-logger-control": "workspace:*",
         "pure-cat-module-marquee": "workspace:*",
         "pure-cat-module-welcome": "workspace:*"

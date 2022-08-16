@@ -8,12 +8,14 @@ import { Marquee } from "pure-cat-module-marquee";
 import { Welcome } from "pure-cat-module-welcome";
 import { LoggerControl } from "pure-cat-module-logger-control";
 import { Click } from "pure-cat-module-click";
+import { LeetCode } from "pure-cat-module-leetcode";
 import { BOT_ID, STORAGE } from "./config";
 
 export const bot = new Bot(BOT_ID, STORAGE)
     .use(new EventLog())
-    .use(new Marquee(["/log-dump", "/dns"]))
+    .use(new Marquee(["/log-dump", "/dns", "/leetcode"]))
     .use(new DNS())
     .use(new LoggerControl())
     .use(new Click())
+    .use(new LeetCode())
     .use(new Welcome());
