@@ -1,11 +1,11 @@
-import { GuildMember } from "discord.js";
+import { GuildMember, MessageOptions } from "discord.js";
 import { Bot, Command, Module } from "pure-cat";
 
 export class Welcome extends Module<Storage> {
-    private messages: string[];
+    private messages: (string | MessageOptions)[];
 
     constructor(
-        { messages = ["Hello ${username}! Nice to see you!"] }: Partial<Option> = {},
+        { messages = ["Welcome <@${id}>! Nice to see you!"] }: Partial<Option> = {},
         bot?: Bot<Storage>,
     ) {
         super(bot);
@@ -24,12 +24,20 @@ export class Welcome extends Module<Storage> {
             throw new Error("Welcome channel not exists.");
         }
 
-        const content = inject_template(
-            this.messages[Math.floor(Math.random() * this.messages.length)],
-            { ...member.user, guild: member.guild },
-        );
+        const message = this.messages[Math.floor(Math.random() * this.messages.length)];
 
-        await chan.send(content);
+        if (typeof message === "string") {
+            await chan.send(inject_template(message, { ...member.user, guild: member.guild }));
+        } else {
+            if (message.content) {
+                message.content = inject_template(message.content, {
+                    ...member.user,
+                    guild: member.guild,
+                });
+            }
+
+            await chan.send(message);
+        }
     }
 
     public commands = [
@@ -67,7 +75,7 @@ interface Option {
     /**
      * Welcome messages.
      */
-    messages: string[];
+    messages: (string | MessageOptions)[];
 }
 
 interface Storage {
