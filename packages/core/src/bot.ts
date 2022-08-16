@@ -128,12 +128,11 @@ export class Bot<T = unknown> {
         return this;
     }
 
-    public login(token: string): this {
-        this.client.login(token);
-        return this;
+    public login(token: string): Promise<string> {
+        return this.client.login(token);
     }
 
-    public async register(token: string): Promise<void> {
+    public async register(token: string): Promise<boolean> {
         const rest = new REST({ version: "10" }).setToken(token);
 
         const commands = this.modules
@@ -146,8 +145,10 @@ export class Bot<T = unknown> {
             await rest.put(Routes.applicationCommands(this.id), { body: commands });
 
             this.logger.sys({ message: `${commands.length} application (/) commands updated.` });
+            return true;
         } catch (error) {
             this.logger.sys({ message: `Failed refreshing application (/) commands. ${error}` });
+            return false;
         }
     }
 }

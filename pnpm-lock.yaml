@@ -36,14 +36,9 @@ importers:
       '@types/jest': ^28.1.6
       '@types/node': ^18.7.4
       '@types/node-fetch': ^2.6.2
-      '@typescript-eslint/eslint-plugin': ^5.33.0
-      '@typescript-eslint/parser': ^5.33.0
       discord.js: ^14.2.0
-      eslint: ^8.22.0
-      eslint-config-prettier: ^8.5.0
       file-mapping: ^0.2.1
       jest: ^28.1.3
-      prettier: ^2.7.1
       ts-jest: ^28.0.8
       tsup: ^6.2.2
       typedoc: ^0.23.10
@@ -55,12 +50,159 @@ importers:
       '@types/jest': 28.1.7
       '@types/node': 18.7.6
       '@types/node-fetch': 2.6.2
-      '@typescript-eslint/eslint-plugin': 5.33.1_vsoshirnpb7xw6mr7xomgfas2i
-      '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
-      eslint: 8.22.0
-      eslint-config-prettier: 8.5.0_eslint@8.22.0
       jest: 28.1.3_@types+node@18.7.6
-      prettier: 2.7.1
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/module-click:
+    specifiers:
+      '@types/jest': ^28.1.6
+      '@types/node': ^18.7.4
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      jest: ^28.1.3
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/module-dns:
+    specifiers:
+      '@types/jest': ^28.1.6
+      '@types/node': ^18.7.4
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      jest: ^28.1.3
+      node-fetch: ^2.6.7
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      node-fetch: 2.6.7
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/module-event-log:
+    specifiers:
+      '@types/jest': ^28.1.6
+      '@types/node': ^18.7.4
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      jest: ^28.1.3
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/module-logger-control:
+    specifiers:
+      '@types/jest': ^28.1.6
+      '@types/node': ^18.7.4
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      jest: ^28.1.3
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/module-marquee:
+    specifiers:
+      '@types/jest': ^28.1.6
+      '@types/node': ^18.7.4
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      jest: ^28.1.3
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/module-welcome:
+    specifiers:
+      '@types/jest': ^28.1.6
+      '@types/node': ^18.7.4
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      jest: ^28.1.3
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
       ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
       tsup: 6.2.2_typescript@4.7.4
       typedoc: 0.23.10_typescript@4.7.4
@@ -74,6 +216,12 @@ importers:
       dotenv: ^16.0.1
       node-fetch: ^2.6.7
       pure-cat: workspace:*
+      pure-cat-module-click: workspace:*
+      pure-cat-module-dns: workspace:*
+      pure-cat-module-event-log: workspace:*
+      pure-cat-module-logger-control: workspace:*
+      pure-cat-module-marquee: workspace:*
+      pure-cat-module-welcome: workspace:*
       tsup: ^6.2.2
       typescript: ^4.7.4
     dependencies:
@@ -81,6 +229,12 @@ importers:
       dotenv: 16.0.1
       node-fetch: 2.6.7
       pure-cat: link:../core
+      pure-cat-module-click: link:../module-click
+      pure-cat-module-dns: link:../module-dns
+      pure-cat-module-event-log: link:../module-event-log
+      pure-cat-module-logger-control: link:../module-logger-control
+      pure-cat-module-marquee: link:../module-marquee
+      pure-cat-module-welcome: link:../module-welcome
     devDependencies:
       '@types/node': 18.7.6
       '@types/node-fetch': 2.6.2

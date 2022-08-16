@@ -16,10 +16,16 @@
         "discord.js": "^14.2.0",
         "dotenv": "^16.0.1",
         "node-fetch": "^2.6.7",
-        "pure-cat": "workspace:*"
+        "pure-cat": "workspace:*",
+        "pure-cat-module-click": "workspace:*",
+        "pure-cat-module-dns": "workspace:*",
+        "pure-cat-module-event-log": "workspace:*",
+        "pure-cat-module-logger-control": "workspace:*",
+        "pure-cat-module-marquee": "workspace:*",
+        "pure-cat-module-welcome": "workspace:*"
     },
     "devDependencies": {
-        "@types/node": "^18.7.4",
+        "@types/node": "^18.7.6",
         "@types/node-fetch": "^2.6.2",
         "tsup": "^6.2.2",
         "typescript": "^4.7.4"

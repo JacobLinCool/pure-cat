@@ -1,7 +1,7 @@
 {
-    "name": "pure-cat",
+    "name": "pure-cat-module-event-log",
     "version": "0.2.0",
-    "description": "A Modular Discord Bot (Framework).",
+    "description": "Log all events.",
     "keywords": [
         "pure-cat"
     ],
@@ -14,13 +14,12 @@
     ],
     "scripts": {
         "test": "jest --coverage",
-        "dev": "tsup --watch",
         "build": "tsup",
         "docs": "typedoc ./src/index.ts"
     },
     "dependencies": {
         "discord.js": "^14.2.0",
-        "file-mapping": "^0.2.1"
+        "pure-cat": "workspace:*"
     },
     "devDependencies": {
         "@types/jest": "^28.1.7",
