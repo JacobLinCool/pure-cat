@@ -1,13 +1,14 @@
 lockfileVersion: 5.4
 
 importers:
+
   .:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
-      '@typescript-eslint/eslint-plugin': ^5.33.0
-      '@typescript-eslint/parser': ^5.33.0
+      '@typescript-eslint/eslint-plugin': ^5.33.1
+      '@typescript-eslint/parser': ^5.33.1
       eslint: ^8.22.0
       eslint-config-prettier: ^8.5.0
       jest: ^28.1.3
@@ -33,8 +34,8 @@ importers:
 
   packages/core:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       file-mapping: ^0.2.1
@@ -58,8 +59,8 @@ importers:
 
   packages/module-click:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       jest: ^28.1.3
@@ -83,8 +84,8 @@ importers:
 
   packages/module-dns:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       jest: ^28.1.3
@@ -110,8 +111,8 @@ importers:
 
   packages/module-event-log:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       jest: ^28.1.3
@@ -135,8 +136,8 @@ importers:
 
   packages/module-logger-control:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       jest: ^28.1.3
@@ -160,8 +161,8 @@ importers:
 
   packages/module-marquee:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       jest: ^28.1.3
@@ -185,8 +186,8 @@ importers:
 
   packages/module-welcome:
     specifiers:
-      '@types/jest': ^28.1.6
-      '@types/node': ^18.7.4
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       jest: ^28.1.3
@@ -210,7 +211,7 @@ importers:
 
   packages/pure-cat:
     specifiers:
-      '@types/node': ^18.7.4
+      '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
       dotenv: ^16.0.1
@@ -242,6 +243,7 @@ importers:
       typescript: 4.7.4
 
 packages:
+
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
     engines: {node: '>=6.0.0'}
