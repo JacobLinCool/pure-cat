@@ -55,4 +55,4 @@ jobs:
       - name: Build
         run: |
           npm run docker:load
-          [ $(docker image inspect -f "{{ .Size }}" jacoblincool/pure-cat) -lt 200000000 ]
+          [ $(docker image inspect -f "{{ .Size }}" jacoblincool/pure-cat) -lt 600000000 ]
