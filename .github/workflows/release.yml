@@ -38,7 +38,7 @@ jobs:
       - name: Publish
         run: |
           pnpm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
-          pnpm publish --verbose --no-git-checks
+          pnpm publish -r --verbose --access public --no-git-checks
 
   release-image:
     name: Release Docker Image (${{ github.ref }})
@@ -72,8 +72,7 @@ jobs:
 
       - name: Build & Push
         run: |
-          touch .env
-          docker buildx bake --push --set "*.platform=linux/arm64,linux/amd64"
+          npm run docker:push
           regctl -v info image copy jacoblincool/pure-cat:latest ghcr.io/jacoblincool/pure-cat:latest
 
   release-note:

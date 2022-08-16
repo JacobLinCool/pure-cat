@@ -10,5 +10,5 @@ export default defineConfig((option) => ({
     splitting: false,
     bundle: false,
     minify: false,
-    dts: option.watch ? false : { entry: "src/core/index.ts" },
+    dts: option.watch ? false : { entry: "src/index.ts" },
 }));

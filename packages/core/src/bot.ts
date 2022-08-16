@@ -121,6 +121,7 @@ export class Bot<T = unknown> {
         });
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public use(module: Module<any>): this {
         module.init?.(this);
         this.modules.push(module);

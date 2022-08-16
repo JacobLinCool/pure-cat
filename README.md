@@ -17,11 +17,11 @@ import { LoggerControl } from "./module/logger-control";
 import { BOT_ID, STORAGE, BOT_TOKEN } from "./config";
 
 new Bot(BOT_ID, STORAGE)
-    .use(new EventLog())
-    .use(new Marquee(["/log-dump", "/dns"]))
-    .use(new DNS())
-    .use(new LoggerControl())
-    .login(BOT_TOKEN);
+  .use(new EventLog())
+  .use(new Marquee(["/log-dump", "/dns"]))
+  .use(new DNS())
+  .use(new LoggerControl())
+  .login(BOT_TOKEN);
 ```
 
 ```ts
@@ -31,10 +31,7 @@ import { DNS } from "./module/dns";
 import { LoggerControl } from "./module/logger-control";
 import { BOT_ID, STORAGE, BOT_TOKEN } from "./config";
 
-new Bot(BOT_ID, STORAGE)
-    .use(new DNS())
-    .use(new LoggerControl())
-    .register(BOT_TOKEN);
+new Bot(BOT_ID, STORAGE).use(new DNS()).use(new LoggerControl()).register(BOT_TOKEN);
 ```
 
 ## Docker

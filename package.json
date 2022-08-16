@@ -1,33 +1,23 @@
 {
-    "name": "pure-cat",
-    "version": "0.2.0",
+    "private": true,
+    "name": "pure-cat-monorepo",
     "description": "A Modular Discord Bot (Framework).",
-    "main": "dist/core/index.js",
-    "types": "dist/index.d.ts",
     "scripts": {
-        "start": "node dist/index.js",
-        "register": "node dist/register.js",
-        "test": "jest --coverage",
-        "dev": "tsup --watch",
-        "build": "tsup",
-        "docs": "typedoc ./src/core/index.ts",
+        "start": "pnpm -r --filter=./packages/* run start",
+        "register": "pnpm -r --filter=./packages/* run register",
+        "test": "pnpm -r --filter=./packages/* run test",
+        "dev": "pnpm -r --filter=./packages/* run dev",
+        "build": "pnpm -r --filter=./packages/* run build",
+        "docs": "pnpm -r --filter=./packages/* run docs",
         "format": "prettier --write '**/*.{js,ts,jsx,tsx,json,yml,yaml,md,html}' --ignore-path .gitignore",
-        "lint": "eslint ."
+        "lint": "eslint --env-info --fix .",
+        "docker:load": "touch .env && docker buildx bake --load",
+        "docker:push": "touch .env && docker buildx bake --push --set '*.platform=linux/arm64,linux/amd64'",
+        "docker:up": "docker compose up -d"
     },
     "keywords": [],
     "author": "JacobLinCool <jacoblincool@gmail.com> (https://github.com/JacobLinCool)",
     "license": "MIT",
-    "files": [
-        "dist"
-    ],
-    "dependencies": {
-        "@discordjs/rest": "^1.0.1",
-        "discord.js": "^14.2.0",
-        "dotenv": "^16.0.1",
-        "file-mapping": "^0.2.1",
-        "node-fetch": "^2.6.7",
-        "pure-cat": "workspace:*"
-    },
     "devDependencies": {
         "@types/jest": "^28.1.6",
         "@types/node": "^18.7.4",

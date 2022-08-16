@@ -54,6 +54,5 @@ jobs:
 
       - name: Build
         run: |
-          touch .env
-          docker buildx bake --load
+          npm run docker:load
           [ $(docker image inspect -f "{{ .Size }}" jacoblincool/pure-cat) -lt 200000000 ]
