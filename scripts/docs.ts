@@ -25,6 +25,9 @@ const server = http.createServer((request, response) => {
 
 server.listen(54321, async () => {
     const text = await fetch("http://localhost:54321").then((res) => res.text());
-    fs.writeFileSync(path.resolve(collection, "index.html"), text);
+    fs.writeFileSync(
+        path.resolve(collection, "index.html"),
+        text.replace(/href="(\/|(&#47;))/g, 'href="./'),
+    );
     server.close();
 });
