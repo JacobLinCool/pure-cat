@@ -55,7 +55,7 @@ export class Welcome extends Module<Storage> {
                 throw new Error("Not a text channel");
             }
 
-            bot.store.data(guild.id).welcome = { channel: chan.id };
+            bot.store.data(guild.id).welcome.channel = chan.id;
 
             await interaction.reply({
                 ephemeral: true,
@@ -71,15 +71,25 @@ function inject_template(template: string, vars: Record<string, unknown>): strin
     );
 }
 
-interface Option {
+export interface Option {
     /**
-     * Welcome messages.
+     * Welcome messages. (Randomly picked)
      */
     messages: (string | MessageOptions)[];
 }
 
-interface Storage {
+export interface Storage {
     welcome: {
         channel: string;
+        messages: (string | MessageOptions)[];
     };
+
+    [key: string]: unknown;
 }
+
+export const WelcomeStorage: Storage = {
+    welcome: {
+        channel: "",
+        messages: [],
+    },
+};

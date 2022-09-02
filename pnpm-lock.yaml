@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@prisma/client': ^4.2.1
       '@types/jest': ^28.1.7
       '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
@@ -16,12 +17,14 @@ importers:
       jest: ^28.1.3
       node-fetch: ^2.6.7
       prettier: ^2.7.1
+      prisma: ^4.2.1
       serve-handler: ^6.1.3
       ts-jest: ^28.0.8
       tsup: ^6.2.2
       typedoc: ^0.23.10
       typescript: ^4.7.4
     devDependencies:
+      '@prisma/client': 4.2.1_prisma@4.2.1
       '@types/jest': 28.1.7
       '@types/node': 18.7.6
       '@types/node-fetch': 2.6.2
@@ -34,6 +37,7 @@ importers:
       jest: 28.1.3_@types+node@18.7.6
       node-fetch: 2.6.7
       prettier: 2.7.1
+      prisma: 4.2.1
       serve-handler: 6.1.3
       ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
       tsup: 6.2.2_typescript@4.7.4
@@ -42,12 +46,16 @@ importers:
 
   packages/core:
     specifiers:
+      '@prisma/client': ^4.2.1
       '@types/jest': ^28.1.7
       '@types/node': ^18.7.6
       '@types/node-fetch': ^2.6.2
       discord.js: ^14.2.0
+      esno: ^0.16.3
       file-mapping: ^0.2.1
       jest: ^28.1.3
+      prisma: ^4.2.1
+      prisma-runtime: ^0.1.3
       ts-jest: ^28.0.8
       tsup: ^6.2.2
       typedoc: ^0.23.10
@@ -55,11 +63,15 @@ importers:
     dependencies:
       discord.js: 14.2.0
       file-mapping: 0.2.1
+      prisma-runtime: 0.1.3
     devDependencies:
+      '@prisma/client': 4.2.1_prisma@4.2.1
       '@types/jest': 28.1.7
       '@types/node': 18.7.6
       '@types/node-fetch': 2.6.2
+      esno: 0.16.3
       jest: 28.1.3_@types+node@18.7.6
+      prisma: 4.2.1
       ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
       tsup: 6.2.2_typescript@4.7.4
       typedoc: 0.23.10_typescript@4.7.4
@@ -219,6 +231,33 @@ importers:
       typedoc: 0.23.10_typescript@4.7.4
       typescript: 4.7.4
 
+  packages/module-subscription:
+    specifiers:
+      '@types/jest': ^28.1.7
+      '@types/node': ^18.7.6
+      '@types/node-fetch': ^2.6.2
+      discord.js: ^14.2.0
+      file-mapping: ^0.2.1
+      jest: ^28.1.3
+      pure-cat: workspace:*
+      ts-jest: ^28.0.8
+      tsup: ^6.2.2
+      typedoc: ^0.23.10
+      typescript: ^4.7.4
+    dependencies:
+      discord.js: 14.2.0
+      file-mapping: 0.2.1
+      pure-cat: link:../core
+    devDependencies:
+      '@types/jest': 28.1.7
+      '@types/node': 18.7.6
+      '@types/node-fetch': 2.6.2
+      jest: 28.1.3_@types+node@18.7.6
+      ts-jest: 28.0.8_bi2kohzqnxavgozw3csgny5hju
+      tsup: 6.2.2_typescript@4.7.4
+      typedoc: 0.23.10_typescript@4.7.4
+      typescript: 4.7.4
+
   packages/module-welcome:
     specifiers:
       '@types/jest': ^28.1.7
@@ -258,6 +297,7 @@ importers:
       pure-cat-module-leetcode: workspace:*
       pure-cat-module-logger-control: workspace:*
       pure-cat-module-marquee: workspace:*
+      pure-cat-module-subscription: workspace:*
       pure-cat-module-welcome: workspace:*
       tsup: ^6.2.2
       typescript: ^4.7.4
@@ -272,6 +312,7 @@ importers:
       pure-cat-module-leetcode: link:../module-leetcode
       pure-cat-module-logger-control: link:../module-logger-control
       pure-cat-module-marquee: link:../module-marquee
+      pure-cat-module-subscription: link:../module-subscription
       pure-cat-module-welcome: link:../module-welcome
     devDependencies:
       '@types/node': 18.7.6
@@ -1001,6 +1042,29 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@prisma/client/4.2.1_prisma@4.2.1:
+    resolution: {integrity: sha512-PZBkY60+k5oix+e6IUfl3ub8TbRLNsPLdfWrdy2eh80WcHTaT+/UfvXf/B7gXedH7FRtbPFHZXk1hZenJiJZFQ==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826
+      prisma: 4.2.1
+    dev: true
+
+  /@prisma/engines-version/4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826:
+    resolution: {integrity: sha512-tktkqdiwqE4QhmE088boPt+FwPj1Jub/zk+5F6sEfcRHzO5yz9jyMD5HFVtiwxZPLx/8Xg9ElnuTi8E5lWVQFQ==}
+    dev: true
+
+  /@prisma/engines/4.2.1:
+    resolution: {integrity: sha512-0KqBwREUOjBiHwITsQzw2DWfLHjntvbqzGRawj4sBMnIiL5CXwyDUKeHOwXzKMtNr1rEjxEsypM14g0CzLRK3g==}
+    requiresBuild: true
     dev: true
 
   /@sapphire/async-queue/1.4.0:
@@ -3680,6 +3744,21 @@ packages:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
       react-is: 18.2.0
+    dev: true
+
+  /prisma-runtime/0.1.3:
+    resolution: {integrity: sha512-6Ct15vnMRox3pQD4FCvDG1V7Ch2oAwZo0rPDjtPtnECO8/JrsunUzrHkru5Tnlazk7q8Xmfkc6ZP2EMK0l+Pqg==}
+    hasBin: true
+    requiresBuild: true
+    dev: false
+
+  /prisma/4.2.1:
+    resolution: {integrity: sha512-HuYqnTDgH8atjPGtYmY0Ql9XrrJnfW7daG1PtAJRW0E6gJxc50lY3vrIDn0yjMR3TvRlypjTcspQX8DT+xD4Sg==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.2.1
     dev: true
 
   /progress/2.0.3:

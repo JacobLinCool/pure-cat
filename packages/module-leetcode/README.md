@@ -21,12 +21,12 @@ import { Click } from "pure-cat-module-click";
 import { BOT_ID, STORAGE } from "./config";
 
 export const bot = new Bot(BOT_ID, STORAGE)
-    .use(new EventLog())
-    .use(new Marquee(["I am a cool bot!", "Beep boop!"]))
-    .use(new DNS())
-    .use(new LoggerControl())
-    .use(new Click())
-    .use(new Welcome({ messages: ["Hi <@${id}>!"] }));
+  .use(new EventLog())
+  .use(new Marquee(["I am a cool bot!", "Beep boop!"]))
+  .use(new DNS())
+  .use(new LoggerControl())
+  .use(new Click())
+  .use(new Welcome({ messages: ["Hi <@${id}>!"] }));
 ```
 
 ```ts

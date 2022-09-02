@@ -6,13 +6,37 @@ services:
       context: .
       target: pure-cat
     image: jacoblincool/pure-cat
+    container_name: pure-cat
     env_file:
       - .env
-    environment:
-      - STORAGE=/storage
-    volumes:
-      - log-storage:/storage
+    depends_on:
+      - db
     restart: unless-stopped
+  dev:
+    build:
+      context: .
+      target: pure-cat-dev
+    image: jacoblincool/pure-cat-dev
+    container_name: pure-cat-dev
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - adminer
+  db:
+    image: postgres:alpine
+    container_name: pure-cat-db
+    env_file:
+      - .env
+    volumes:
+      - pure-cat-db:/var/lib/postgresql/data
+  adminer:
+    image: adminer:latest
+    container_name: pure-cat-adminer
+    ports:
+      - 8080:8080
 
 volumes:
-  log-storage: {}
+  pure-cat-db: {}

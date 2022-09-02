@@ -23,6 +23,7 @@
         "pure-cat-module-leetcode": "workspace:*",
         "pure-cat-module-logger-control": "workspace:*",
         "pure-cat-module-marquee": "workspace:*",
+        "pure-cat-module-subscription": "workspace:*",
         "pure-cat-module-welcome": "workspace:*"
     },
     "devDependencies": {

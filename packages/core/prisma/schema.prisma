@@ -1,0 +1,38 @@
+// Prisma Schema
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("CORE_DATABASE_URL")
+}
+
+model Server {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  discordId   String   @unique
+  discordName String
+}
+
+model User {
+  id                   Int      @id @default(autoincrement())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  discordId            String   @unique
+  discordUsername      String
+  discordDiscriminator String
+  discordAvatar        String
+  discordJoinedAt      DateTime
+}
+
+model Log {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  server    String
+  actor     String
+  message   String
+}

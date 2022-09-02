@@ -3,9 +3,10 @@ import type { Message, Interaction, Guild, GuildMember } from "discord.js";
 import type { Command } from "./command";
 import type { Bot } from "./bot";
 
-export class Module<T = unknown> {
+export class Module<T extends Record<string, unknown> = Record<string, unknown>> {
     public bot?: Bot<T>;
     public commands?: Command<T>[];
+    public db: unknown;
 
     constructor(bot?: Bot<T>) {
         this.bot = bot;

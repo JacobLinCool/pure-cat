@@ -129,3 +129,5 @@ dist
 **/.DS_Store
 storage/
 docs/
+.pnpm-store/
+**/prisma-client/

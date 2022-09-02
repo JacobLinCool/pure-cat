@@ -13,12 +13,14 @@
         "lint": "eslint --env-info --fix .",
         "docker:load": "touch .env && docker buildx bake --load",
         "docker:push": "touch .env && docker buildx bake --push --set '*.platform=linux/arm64,linux/amd64'",
-        "docker:up": "docker compose up -d"
+        "docker:up": "docker compose up -d pure",
+        "docker:dev": "docker compose down && docker compose up -d dev && docker compose exec -it dev bash"
     },
     "keywords": [],
     "author": "JacobLinCool <jacoblincool@gmail.com> (https://github.com/JacobLinCool)",
     "license": "MIT",
     "devDependencies": {
+        "@prisma/client": "^4.2.1",
         "@types/jest": "^28.1.7",
         "@types/node": "^18.7.6",
         "@types/node-fetch": "^2.6.2",
@@ -31,6 +33,7 @@
         "jest": "^28.1.3",
         "node-fetch": "^2.6.7",
         "prettier": "^2.7.1",
+        "prisma": "^4.2.1",
         "serve-handler": "^6.1.3",
         "ts-jest": "^28.0.8",
         "tsup": "^6.2.2",

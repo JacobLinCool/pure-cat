@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig((option) => ({
-    entry: ["src/**/*.ts"],
+    entry: ["src/*.ts"],
     outDir: "dist",
     target: "node16",
     format: ["cjs"],

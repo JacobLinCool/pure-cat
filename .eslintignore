@@ -10,4 +10,6 @@ docs
 # ignore config files
 .eslintrc.js
 jest.config.js
-# tsup.config.ts
+
+# prisma client
+**/prisma-client/

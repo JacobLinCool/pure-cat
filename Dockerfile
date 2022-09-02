@@ -11,3 +11,10 @@ COPY --from=builder /app /app
 WORKDIR /app/packages/pure-cat
 ENTRYPOINT [ "npm", "run" ]
 CMD [ "start" ]
+
+FROM jacoblincool/playwright:chromium as pure-cat-dev
+
+WORKDIR /app
+RUN apt update && apt install -y bash-completion
+ENTRYPOINT [ "sleep", "infinity" ]
+CMD [ ]
